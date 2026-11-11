@@ -19,15 +19,14 @@
     .panel{margin-top:28px;background:#fff;border:1px solid #e3e7ed;border-radius:22px;padding:22px;box-shadow:0 8px 28px rgba(20,30,50,.05)}
     .panel h2{font-size:18px;margin:0 0 8px}
     .panel p{font-size:14px;color:#667080;line-height:1.55;margin:0 0 18px}
-    button{width:100%;min-height:54px;border:0;border-radius:14px;background:#172033;color:white;font:700 16px inherit;cursor:pointer;padding:14px 18px}
-    button:disabled{opacity:.55;cursor:wait}
+    .button{display:flex;align-items:center;justify-content:center;width:100%;min-height:54px;border:0;border-radius:14px;background:#172033;color:white;font:700 16px system-ui,sans-serif;text-decoration:none;padding:14px 18px}
     .hint{margin-top:12px!important;font-size:12px!important}
     .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}
     .tile{background:#fff;border:1px solid #e3e7ed;border-radius:16px;padding:15px}
     .tile strong{display:block;font-size:14px;margin-bottom:4px}
     .tile span{font-size:12px;color:#6a7382;line-height:1.4}
     footer{padding:28px 4px;color:#8992a0;font-size:12px}
-    a{color:inherit}
+    @media(max-width:360px){.grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -40,23 +39,17 @@
   </section>
   <section class="panel">
     <h2>Desktop öffnen</h2>
-    <p>Der Desktop wird in einem eigenen Browserfenster geöffnet. Die Anmeldung erfolgt separat und nicht über dein GitHub-Konto.</p>
-    <button id="open" type="button">Desktop öffnen</button>
-    <p class="hint" id="hint">Der Desktop ist nur erreichbar, wenn der Server erfolgreich gestartet wurde.</p>
+    <p>Der Desktop wird im Browser geöffnet. Die Anmeldung ist ein eigener Zugang und nicht dein GitHub-Login.</p>
+    <a class="button" href="/desktop/vnc.html?autoconnect=true&amp;resize=remote&amp;path=desktop%2Fwebsockify">Desktop öffnen</a>
+    <p class="hint">Der Desktop ist nur erreichbar, wenn der Server erfolgreich gestartet wurde.</p>
   </section>
   <section class="grid" aria-label="Funktionen">
     <div class="tile"><strong>Linux-Terminal</strong><span>Befehle direkt im Desktop ausführen.</span></div>
     <div class="tile"><strong>Dateien</strong><span>Ordner und Dateien verwalten.</span></div>
-    <div class="tile"><strong>Touch-Steuerung</strong><spanFür kleine Displays optimiert.</span></div>
+    <div class="tile"><strong>Touch-Steuerung</strong><span>Für kleine Displays optimiert.</span></div>
     <div class="tile"><strong>Privater Zugriff</strong><span>Desktop-Zugang mit eigenem Passwort.</span></div>
   </section>
   <footer>TESTSERVER · Experimenteller Prototyp. Noch nicht für vertrauliche Daten verwenden.</footer>
 </main>
-<script>
-  document.getElementById('open').addEventListener('click', function () {
-    const hint = document.getElementById('hint');
-    hint.textContent = 'Der Desktop-Endpunkt wird eingerichtet. Sobald der Server läuft, wird er hier freigeschaltet.';
-  });
-</script>
 </body>
 </html>
